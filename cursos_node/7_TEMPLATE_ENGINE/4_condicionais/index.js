@@ -1,22 +1,32 @@
-const express = require("express");
-const exphbs = require("express-handlebars");
+// ARQUIVO: Condicionais em Templates
+// DESCRIÇÃO: Demonstra uso de estruturas condicionais (if/then) em templates Handlebars
+// CONCEITOS: condicional if, lógica de templates, verificação de variáveis
 
-const app = express();
+const express = require('express') // Framework Express
+const exphbs = require('express-handlebars') // Handlebars
 
-app.engine("handlebars", exphbs());
-app.set("view engine", "handlebars");
+const app = express() // Aplicação
 
-app.get("/", function (req, res) {
+// CONFIGURAÇÃO DO TEMPLATE ENGINE
+app.engine('handlebars', exphbs())
+app.set('view engine', 'handlebars')
+
+// ROTA 1: Página inicial com autenticação
+app.get('/', function (req, res) {
   const user = {
-    name: "Matheus",
-    surname: "Battisti",
-  };
+    name: 'Matheus',
+    surname: 'Battisti',
+  }
 
-  res.render("home", { user: user, auth: true });
-});
+  // No template, você pode usar {{#if auth}} para testar se auth é verdadeiro
+  // Exemplo: {{#if auth}} <p>Bem-vindo!</p> {{/if}}
+  res.render('home', { user: user, auth: true })
+})
 
-app.get("/dashboard", function (req, res) {
-  res.render("dashboard");
-});
+// ROTA 2: Dashboard com lista
+app.get('/dashboard', function (req, res) {
+  // Renderiza template dashboard com dados vazio ou preenchido
+  res.render('dashboard')
+})
 
-app.listen(3000);
+app.listen(3000)

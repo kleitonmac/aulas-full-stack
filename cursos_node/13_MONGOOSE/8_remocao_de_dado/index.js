@@ -1,3 +1,11 @@
+/**
+ * MONGOOSE - REMOVENDO DOCUMENTOS
+ * ===============================
+ * Demonstra como deletar documentos do MongoDB com Mongoose
+ * Usa métodos como .deleteOne(), .deleteMany(), .findByIdAndDelete()
+ * Exemplifica como remover um registro do banco de dados
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

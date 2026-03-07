@@ -1,3 +1,6 @@
+// ========================================
+// MODEL (MODELO) - TAREFA
+// ========================================
 const { DataTypes } = require('sequelize')
 
 const db = require('../db/conn')

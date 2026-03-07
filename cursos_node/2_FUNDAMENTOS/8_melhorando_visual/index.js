@@ -1,9 +1,14 @@
-const chalk = require("chalk");
+// Usar o módulo 'chalk' para colorir e estilizar textos no console
+const chalk = require('chalk')
 
-const nota = 8;
+// Variável com a nota do aluno
+const nota = 8
 
+// Verificar se o aluno passou (nota >= 7)
 if (nota >= 7) {
-  console.log(chalk.green.bold("Parabéns, você passou!"));
+  // Se passou, exibir mensagem em verde e negrito
+  console.log(chalk.green.bold('Parabéns, você passou!'))
 } else {
-  console.log(chalk.bgRed.black("Você precisa fazer a prova final!"));
+  // Se não passou, exibir mensagem com fundo vermelho e texto preto
+  console.log(chalk.bgRed.black('Você precisa fazer a prova final!'))
 }

@@ -1,3 +1,9 @@
+// ========================================
+// SEQUELIZE - DELETANDO DADOS (DELETE/DESTROY)
+// ========================================
+// Este arquivo demonstra como REMOVER registros do banco usando Sequelize.
+// A operação DESTROY deleta um ou mais registros da tabela.
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -20,6 +26,7 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
+// Rota GET / - lista todos os usuários
 app.get('/', function (req, res) {
   User.findAll({ raw: true })
     .then((users) => {
@@ -63,21 +70,24 @@ app.get('/users/:id', function (req, res) {
     .catch((err) => console.log(err))
 })
 
+// Rota POST /users/delete/:id - DELETA um usuário
 app.post('/users/delete/:id', function (req, res) {
   const id = req.params.id
 
+  // User.destroy() - OPERAÇÃO DELETE do CRUD
+  // where: { id: id } - especifica qual registro deletar
   User.destroy({
     where: {
-      id: id,
+      id: id, // Deleta o usuário com este ID
     },
   })
     .then((user) => {
-      res.redirect('/')
+      res.redirect('/') // Redireciona para a lista após deletar
     })
     .catch((err) => console.log(err))
 })
 
-// Criar tabelas e rodar o app
+// Sincroniza e inicia o servidor
 conn
   .sync()
   .then(() => {

@@ -1,3 +1,11 @@
+/**
+ * MONGOOSE - INSTALAÇÃO E CONFIGURAÇÃO
+ * =====================================
+ * Mongoose é uma biblioteca ODM (Object Data Modeling) para MongoDB em Node.js
+ * Facilita o trabalho com MongoDB usando schemas e modelos tipados
+ * Este arquivo configura Express + Mongoose + Handlebars
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

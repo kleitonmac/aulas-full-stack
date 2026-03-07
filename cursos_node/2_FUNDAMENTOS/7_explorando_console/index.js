@@ -1,19 +1,20 @@
-// mais de uma valor
-const x = 10;
-const y = "Matheus";
+// Explorando diferentes funcionalidades do console
 
-console.log(x, y);
+// Imprimir múltiplos valores na mesma linha
+const x = 10
+const y = 'Matheus'
+console.log(x, y)
 
-// contagem de impressões
-console.count("O valor de x é: " + x + " -> contagem:");
-console.count("O valor de x é: " + x + " -> contagem:");
-console.count("O valor de x é: " + x + " -> contagem:");
-console.count("O valor de y é: " + y + " -> contagem:");
+// console.count() conta quantas vezes uma mensagem foi exibida
+console.count('O valor de x é: ' + x + ' -> contagem:')
+console.count('O valor de x é: ' + x + ' -> contagem:')
+console.count('O valor de x é: ' + x + ' -> contagem:')
+console.count('O valor de y é: ' + y + ' -> contagem:')
 
-// variável entre string
-console.log("O nome dele é %s", y);
+// Usar %s como placeholder para inserir variáveis em strings
+console.log('O nome dele é %s', y)
 
-// limpando console
+// console.clear() limpa o console após 2000 milissegundos (2 segundos)
 setTimeout(() => {
-  console.clear();
-}, 2000);
+  console.clear()
+}, 2000)

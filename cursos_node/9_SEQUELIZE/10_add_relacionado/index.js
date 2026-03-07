@@ -1,3 +1,9 @@
+// ========================================
+// SEQUELIZE - ADICIONANDO DADOS RELACIONADOS
+// ========================================
+// Este arquivo demonstra como INSERIR dados em tabelas relacionadas.
+// Quando criamos um endereço, ele é automaticamente associado a um usuário.
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -128,21 +134,24 @@ app.post('/users/update', function (req, res) {
     .catch((err) => console.log(err))
 })
 
+// Rota POST /address/create - INSERE um novo endereço relacionado a um usuário
 app.post('/address/create', function (req, res) {
-  const UserId = req.body.UserId
+  const UserId = req.body.UserId // ID do usuário (chave estrangeira)
   const street = req.body.street
   const number = req.body.number
   const city = req.body.city
 
+  // Objeto com os dados do endereço
   const address = {
     street,
     number,
     city,
-    UserId,
+    UserId, // Associa este endereço ao usuário
   }
 
+  // Address.create() - cria um novo endereço associado ao usuário
   Address.create(address)
-    .then(res.redirect(`/users/edit/${UserId}`))
+    .then(res.redirect(`/users/edit/${UserId}`)) // Redireciona para editar o usuário
     .catch((err) => console.log(err))
 })
 

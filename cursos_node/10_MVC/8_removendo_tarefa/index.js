@@ -1,3 +1,9 @@
+// ========================================
+// ARQUITETURA MVC - REMOVENDO TAREFAS
+// ========================================
+// Este arquivo demonstra como DELETAR tarefas do banco.
+// A operação DELETE remove registros (destroy).
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -5,10 +11,8 @@ const app = express()
 
 const conn = require('./db/conn')
 
-// Models
 const Task = require('./models/Task')
 
-// routes
 const taskRoutes = require('./routes/tasksRoutes')
 
 app.engine('handlebars', exphbs())

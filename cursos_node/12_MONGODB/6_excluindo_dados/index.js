@@ -1,3 +1,11 @@
+/**
+ * MONGODB - DELETANDO/REMOVENDO DADOS
+ * ===================================
+ * Demonstra como remover documents do MongoDB
+ * Exemplifica operações de DELETE (D do CRUD)
+ * Mostra like como deletar um registro por ID
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

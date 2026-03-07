@@ -1,66 +1,78 @@
-const express = require("express");
-const exphbs = require("express-handlebars");
+// ARQUIVO: CSS com Handlebars
+// DESCRIÇÃO: Demonstra integração de CSS (arquivo estático) com templates Handlebars
+// CONCEITOS: express.static(), arquivos públicos, CSS estilização, partials
 
-const app = express();
+const express = require('express') // Framework Express
+const exphbs = require('express-handlebars') // Handlebars
 
+const app = express() // Aplicação
+
+// CONFIGURAÇÃO DO TEMPLATE ENGINE COM PARTIALS
 const hbs = exphbs.create({
-  partialsDir: ["views/partials/"],
-});
+  partialsDir: ['views/partials/'],
+})
 
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+app.engine('handlebars', hbs.engine)
+app.set('view engine', 'handlebars')
 
-app.use(express.static("public"));
+// MIDDLEWARE PARA SERVIR ARQUIVOS ESTÁTICOS
+// Permite servir CSS, JS, imagens da pasta public
+app.use(express.static('public'))
 
-app.get("/", function (req, res) {
+// ROTA 1: Página inicial
+app.get('/', function (req, res) {
   const user = {
-    name: "Matheus",
-    surname: "Battisti",
-  };
+    name: 'Matheus',
+    surname: 'Battisti',
+  }
 
-  res.render("home", { user: user, auth: true });
-});
+  res.render('home', { user: user, auth: true })
+})
 
-app.get("/dashboard", function (req, res) {
-  const items = ["Item a", "Item b", "Item c"];
+// ROTA 2: Dashboard
+app.get('/dashboard', function (req, res) {
+  const items = ['Item a', 'Item b', 'Item c']
 
-  res.render("dashboard", { items: items });
-});
+  res.render('dashboard', { items: items })
+})
 
-app.get("/post", function (req, res) {
+// ROTA 3: Post individual
+app.get('/post', function (req, res) {
   const post = {
-    title: "Aprender Node.js",
-    category: "Node.js",
-    body: "Node.js é muito utilizado na programação hoje em dia",
+    title: 'Aprender Node.js',
+    category: 'Node.js',
+    body: 'Node.js é muito utilizado na programação hoje em dia',
     comments: 4,
-  };
+  }
 
-  res.render("blogpost", { post });
-});
+  res.render('blogpost', { post })
+})
 
-app.get("/blog", function (req, res) {
+// ROTA 4: Página de blog
+app.get('/blog', function (req, res) {
   const posts = [
     {
-      title: "Aprender Node.js",
-      category: "Node.js",
-      body: "Node.js é muito utilizado na programação hoje em dia",
+      title: 'Aprender Node.js',
+      category: 'Node.js',
+      body: 'Node.js é muito utilizado na programação hoje em dia',
       comments: 4,
     },
     {
-      title: "PHP ainda vale a pena?",
-      category: "PHP",
-      body: "",
+      title: 'PHP ainda vale a pena?',
+      category: 'PHP',
+      body: '',
       comments: 12,
     },
     {
-      title: "Os segredos de JavaScript",
-      category: "JavaScript",
-      body: "",
+      title: 'Os segredos de JavaScript',
+      category: 'JavaScript',
+      body: '',
       comments: 5,
     },
-  ];
+  ]
 
-  res.render("blog", { posts });
-});
+  // express.static('public') permite que arquivos CSS em public/ sejam carregados automaticamente
+  res.render('blog', { posts })
+})
 
-app.listen(3000);
+app.listen(3000)

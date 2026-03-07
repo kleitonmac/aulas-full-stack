@@ -1,3 +1,11 @@
+/**
+ * MONGODB - SALVANDO EDIÇÕES DE DADOS
+ * ===================================
+ * Demonstra como confirmar e salvar as alterações no MongoDB
+ * Exemplifica a etapa final de UPDATE do CRUD
+ * Processa o formulário de edição e atualiza no banco de dados
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

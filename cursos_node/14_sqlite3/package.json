@@ -1,0 +1,32 @@
+{
+  "name": "curso-sqlite3",
+  "version": "1.0.0",
+  "description": "Curso completo de SQLite3 com Node.js - Progressivo do básico ao avançado",
+  "main": "1_instalacao/index.js",
+  "scripts": {
+    "1-instalacao": "node 1_instalacao/index.js",
+    "2-tabelas": "node 2_criando_tabela/index.js",
+    "3-inserir": "node 3_inserindo_dados/index.js",
+    "4-ler": "node 4_lendo_dados/index.js",
+    "5-atualizar": "node 5_atualizando_dados/index.js",
+    "6-deletar": "node 6_deletando_dados/index.js",
+    "7-avancado": "node 7_queries_avancadas/index.js",
+    "8-better": "node 8_better_sqlite3/index.js",
+    "9-tarefa": "node 9_tarefa_crud/app.js"
+  },
+  "keywords": [
+    "sqlite3",
+    "database",
+    "node.js",
+    "sql",
+    "orm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "better-sqlite3": "^9.0.0"
+  }
+}

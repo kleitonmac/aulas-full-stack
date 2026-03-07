@@ -1,3 +1,6 @@
+// ========================================
+// CONEXÃO COM BANCO DE DADOS
+// ========================================
 const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize('nodemvc', 'root', '', {

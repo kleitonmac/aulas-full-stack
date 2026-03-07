@@ -1,8 +1,13 @@
+// ========================================
+// CONEXÃO COM BANCO DE DADOS
+// ========================================
+// Este arquivo configura a conexão Sequelize com o banco de dados MySQL.
+
 const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize('nodemvc', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
+  host: 'localhost', // Servidor do banco
+  dialect: 'mysql', // Tipo de banco de dados
 })
 
 try {

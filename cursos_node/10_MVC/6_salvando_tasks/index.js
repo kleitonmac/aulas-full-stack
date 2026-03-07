@@ -1,3 +1,9 @@
+// ========================================
+// ARQUITETURA MVC - SALVANDO TAREFAS
+// ========================================
+// Este arquivo demonstra como salvar dados no banco de dados via formulário.
+// As tarefas criadas são persistidas no banco (operação CREATE).
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -5,10 +11,10 @@ const app = express()
 
 const conn = require('./db/conn')
 
-// Models
+// Importa o Model Task
 const Task = require('./models/Task')
 
-// routes
+// Importa as rotas
 const taskRoutes = require('./routes/tasksRoutes')
 
 app.engine('handlebars', exphbs())

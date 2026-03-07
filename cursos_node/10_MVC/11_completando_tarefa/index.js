@@ -1,3 +1,9 @@
+// ========================================
+// ARQUITETURA MVC - COMPLETANDO TAREFAS (TOGGLE STATUS)
+// ========================================
+// Este arquivo demonstra como MARCAR tarefas como concluídas/pendentes.
+// Implementa um UPDATE específico para o campo 'done' (booleano).
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -5,10 +11,8 @@ const app = express()
 
 const conn = require('./db/conn')
 
-// Models
 const Task = require('./models/Task')
 
-// routes
 const taskRoutes = require('./routes/tasksRoutes')
 
 app.engine('handlebars', exphbs())

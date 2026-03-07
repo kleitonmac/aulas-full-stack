@@ -1,9 +1,15 @@
-const os = require("os");
+// Usar o módulo 'os' (Operating System) para obter informações do sistema
 
-console.log(os.cpus());
+const os = require('os')
 
-console.log(os.freemem());
+// os.cpus() retorna informações sobre os processadores do computador
+console.log(os.cpus())
 
-console.log(os.homedir());
+// os.freemem() retorna a quantidade de memória RAM disponível (em bytes)
+console.log(os.freemem())
 
-console.log(os.type());
+// os.homedir() retorna o caminho do diretório home do usuário
+console.log(os.homedir())
+
+// os.type() retorna o tipo do sistema operacional (Windows, Linux, Darwin, etc)
+console.log(os.type())

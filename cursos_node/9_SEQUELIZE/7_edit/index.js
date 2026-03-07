@@ -1,3 +1,9 @@
+// ========================================
+// SEQUELIZE - EDITANDO DADOS (PREPARANDO PARA UPDATE)
+// ========================================
+// Este arquivo demonstra como BUSCAR um registro para editá-lo.
+// O padrão é: buscar o registro, exibir formulário de edição, depois atualizar.
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -20,6 +26,7 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
+// Rota GET / - lista todos os usuários
 app.get('/', function (req, res) {
   User.findAll({ raw: true })
     .then((users) => {
@@ -77,23 +84,25 @@ app.post('/users/delete/:id', function (req, res) {
     .catch((err) => console.log(err))
 })
 
+// Rota GET /users/edit/:id - busca um usuário para editá-lo
 app.get('/users/edit/:id', function (req, res) {
   const id = req.params.id
 
+  // User.findOne() - busca o usuário que será editado
   User.findOne({
     raw: true,
     where: {
-      id: id,
+      id: id, // Busca por ID
     },
   })
     .then((user) => {
       console.log(user)
-      res.render('useredit', { user })
+      res.render('useredit', { user }) // Exibe formulário de edição
     })
     .catch((err) => console.log(err))
 })
 
-// Criar tabelas e rodar o app
+// Sincroniza e inicia o servidor
 conn
   .sync()
   .then(() => {

@@ -1,3 +1,9 @@
+// ========================================
+// ARQUITETURA MVC - EDITANDO TAREFAS (PREPARAÇÃO)
+// ========================================
+// Este arquivo demonstra como PREPARAR a edição (buscar dados para formulário).
+// A operação UPDATE começa buscando o registro atual.
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -5,10 +11,8 @@ const app = express()
 
 const conn = require('./db/conn')
 
-// Models
 const Task = require('./models/Task')
 
-// routes
 const taskRoutes = require('./routes/tasksRoutes')
 
 app.engine('handlebars', exphbs())

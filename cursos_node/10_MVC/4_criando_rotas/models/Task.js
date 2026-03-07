@@ -1,17 +1,27 @@
+// ========================================
+// MODEL (MODELO) - TAREFA
+// ========================================
+// Este arquivo define o modelo 'Task' que representa a tabela de tarefas.
+// O Model é a camada que interage com o banco de dados.
+
 const { DataTypes } = require('sequelize')
 
 const db = require('../db/conn')
 
+// Define o modelo Task com seus campos
 const Task = db.define('Task', {
+  // Campo 'title': título da tarefa
   title: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: DataTypes.STRING, // Tipo: texto
+    allowNull: false, // Obrigatório
   },
+  // Campo 'description': descrição da tarefa
   description: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING, // Tipo: texto
   },
+  // Campo 'done': indica se a tarefa foi concluída
   done: {
-    type: DataTypes.BOOLEAN,
+    type: DataTypes.BOOLEAN, // Tipo: booleano
   },
 })
 

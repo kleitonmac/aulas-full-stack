@@ -1,3 +1,11 @@
+/**
+ * MONGOOSE - DEFININDO SCHEMAS
+ * ============================
+ * Schema é a estrutura que define como os dados serão organizados
+ * Define tipos de dados, validações e comportamentos dos campos
+ * Este arquivo exemplifica como criar um schema com Mongoose
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

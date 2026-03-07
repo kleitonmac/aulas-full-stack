@@ -1,24 +1,31 @@
-const express = require("express");
-const exphbs = require("express-handlebars");
+// ARQUIVO: Estruturas Else em Condicionais
+// DESCRIÇÃO: Demonstra uso de else em condicionais de templates Handlebars
+// CONCEITOS: if/else, lógica condicional, valores booleanos
 
-const app = express();
+const express = require('express') // Framework Express
+const exphbs = require('express-handlebars') // Handlebars
 
-app.engine("handlebars", exphbs());
-app.set("view engine", "handlebars");
+const app = express() // Aplicação
 
-app.get("/", function (req, res) {
+// CONFIGURAÇÃO DO TEMPLATE ENGINE
+app.engine('handlebars', exphbs())
+app.set('view engine', 'handlebars')
+
+// ROTA 1: Página inicial
+app.get('/', function (req, res) {
   const user = {
-    name: "Matheus",
-    surname: "Battisti",
-  };
+    name: 'Matheus',
+    surname: 'Battisti',
+  }
 
-  const approved = false;
+  // Passa múltiplos dados: user, auth e approved
+  // No template: {{#if approved}} ... {{else}} ... {{/if}}
+  res.render('home', { user: user, auth: true, approved: false })
+})
 
-  res.render("home", { user: user, auth: true, approved });
-});
+// ROTA 2: Dashboard
+app.get('/dashboard', function (req, res) {
+  res.render('dashboard')
+})
 
-app.get("/dashboard", function (req, res) {
-  res.render("dashboard");
-});
-
-app.listen(3000);
+app.listen(3000)

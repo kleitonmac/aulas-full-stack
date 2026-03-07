@@ -1,12 +1,20 @@
+// ============================================================
+// PROJETO: SISTEMA DE CONTAS BANCÁRIAS
+// ============================================================
+// Este programa cria um sistema simples de gerenciamento de contas
+// Com funcionalidades de criar conta, depositar, sacar e consultar saldo
+// Utiliza inquirer para interface interativa e fs para persistir dados em JSON
+
 const inquirer = require('inquirer')
 const chalk = require('chalk')
-
 const fs = require('fs')
 
+// Início do programa
 operation()
 
-function operation() {
-  inquirer
+// Função principal que exibe o menu de opções
+  // inquirer.prompt() cria um menu de seleção
+  // O usuário escolhe uma ação da lista
     .prompt([
       {
         type: 'list',
@@ -39,15 +47,21 @@ function operation() {
     })
 }
 
-// create user account
-function createAccount() {
+// ============================================================
+// FUNÇÃO: CRIAR NOVA CONTA
+// ============================================================
+// Cria uma nova conta bancária com saldo inicial de 0
+// A conta é armazenada em um arquivo JSON no diretório 'accounts'
   console.log(chalk.bgGreen.black('Parabéns por escolher nosso banco!'))
   console.log(chalk.green('Defina as opções da sua conta a seguir'))
 
   buildAccount()
 }
 
-function buildAccount() {
+// ============================================================
+// FUNÇÃO: CONSTRUIR/SALVAR CONTA
+// ============================================================
+// Pede o nome da conta e salva um arquivo JSON com os dados
   inquirer
     .prompt([
       {
@@ -84,8 +98,10 @@ function buildAccount() {
     })
 }
 
-// add an amount to user account
-function deposit() {
+// ============================================================
+// FUNÇÃO: DEPOSITAR DINHEIRO
+// ============================================================
+// Permite ao usuário depositar um valor em sua conta
   inquirer
     .prompt([
       {
@@ -116,7 +132,10 @@ function deposit() {
     })
 }
 
-function checkAccount(accountName) {
+// ============================================================
+// FUNÇÃO: VERIFICAR EXISTÈNCIA DE CONTA
+// ============================================================
+// Verifica se um arquivo de conta existe no sistema de arquivos
   if (!fs.existsSync(`accounts/${accountName}.json`)) {
     console.log(chalk.bgRed.black('Esta conta não existe, escolha outro nome!'))
     return false
@@ -124,7 +143,10 @@ function checkAccount(accountName) {
   return true
 }
 
-function getAccount(accountName) {
+// ============================================================
+// FUNÇÃO: OBTER DADOS DA CONTA
+// ============================================================
+// Lê o arquivo JSON da conta e retorna o objeto com os dados
   const accountJSON = fs.readFileSync(`accounts/${accountName}.json`, {
     encoding: 'utf8',
     flag: 'r',
@@ -133,7 +155,10 @@ function getAccount(accountName) {
   return JSON.parse(accountJSON)
 }
 
-function addAmount(accountName, amount) {
+// ============================================================
+// FUNÇÃO: ADICIONAR VALOR À CONTA
+// ============================================================
+// Soma um valor ao saldo da conta e salva a alteração no arquivo JSON
   const accountData = getAccount(accountName)
 
   if (!amount) {
@@ -158,8 +183,10 @@ function addAmount(accountName, amount) {
   )
 }
 
-// return account balance
-function getAccountBalance() {
+// ============================================================
+// FUNÇÃO: CONSULTAR SALDO
+// ============================================================
+// Exibe o saldo atual da conta do usuário
   inquirer
     .prompt([
       {
@@ -185,8 +212,11 @@ function getAccountBalance() {
     })
 }
 
-// get money from account
-function withdraw() {
+// ============================================================
+// FUNÇÃO: SACAR DINHEIRO
+// ============================================================
+// Permite ao usuário sacar dinheiro de sua conta
+// Com verificação de saldo suficiente
   inquirer
     .prompt([
       {
@@ -217,7 +247,11 @@ function withdraw() {
     })
 }
 
-function removeAmount(accountName, amount) {
+// ============================================================
+// FUNÇÃO: REMOVER VALOR DA CONTA
+// ============================================================
+// Subtrai um valor do saldo da conta
+// Verifica se há saldo suficiente antes de realizar o saque
   const accountData = getAccount(accountName)
 
   if (!amount) {

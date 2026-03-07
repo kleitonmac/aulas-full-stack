@@ -1,3 +1,9 @@
+// ========================================
+// ARQUITETURA MVC - BUSCANDO/LISTANDO DADOS
+// ========================================
+// Este arquivo demonstra como BUSCAR dados do banco e exibí-los.
+// A operação READ recupera e lista as tarefas (findAll).
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -5,10 +11,8 @@ const app = express()
 
 const conn = require('./db/conn')
 
-// Models
 const Task = require('./models/Task')
 
-// routes
 const taskRoutes = require('./routes/tasksRoutes')
 
 app.engine('handlebars', exphbs())

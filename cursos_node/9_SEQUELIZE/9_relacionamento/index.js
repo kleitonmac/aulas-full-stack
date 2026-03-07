@@ -1,3 +1,10 @@
+// ========================================
+// SEQUELIZE - RELACIONAMENTOS (ASSOCIATIONS)
+// ========================================
+// Este arquivo demonstra como criar RELACIONAMENTOS entre modelos.
+// Um relacionamento conecta duas tabelas: neste caso, User e Address (1:N).
+// Um usuário pode ter múltiplos endereços.
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -5,6 +12,7 @@ const app = express()
 
 const conn = require('./db/conn')
 
+// Importa os modelos de dados
 const User = require('./models/User')
 const Address = require('./models/Address')
 
@@ -21,6 +29,7 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
+// Rota GET / - lista todos os usuários
 app.get('/', function (req, res) {
   User.findAll({ raw: true })
     .then((users) => {
@@ -128,7 +137,7 @@ app.post('/users/update', function (req, res) {
     .catch((err) => console.log(err))
 })
 
-// Criar tabelas e rodar o app
+// Sincroniza e inicia o servidor
 conn
   .sync()
   .then(() => {

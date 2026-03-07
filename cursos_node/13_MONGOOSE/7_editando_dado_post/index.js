@@ -1,3 +1,11 @@
+/**
+ * MONGOOSE - EDITANDO DOCUMENTOS (POST)
+ * =====================================
+ * Processa o formulário de edição e atualiza o documento no MongoDB
+ * Usa .updateOne(), .findByIdAndUpdate() ou método customizado
+ * Salva as alterações permanentemente no banco de dados
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

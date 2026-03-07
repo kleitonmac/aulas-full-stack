@@ -1,7 +1,15 @@
-const fs = require("fs");
+// Operação SÍNCRONA com o módulo 'fs' (File System)
+// A operação bloqueante (Sync) aguarda o arquivo ser escrito para continuar
 
-console.log("Início");
+const fs = require('fs')
 
-fs.writeFileSync("arquivo.txt", "Oi");
+// Imprimir "Início" no console
+console.log('Início')
 
-console.log("Fim");
+// fs.writeFileSync() escreve em um arquivo de forma SÍNCRONA (bloqueante)
+// O programa aguarda esse comando terminar antes de continuar
+fs.writeFileSync('arquivo.txt', 'Oi')
+
+// Imprimir "Fim" no console
+// Este console.log() só será executado DEPOIS que o arquivo for criado
+console.log('Fim')

@@ -1,3 +1,11 @@
+/**
+ * MONGOOSE - BUSCANDO DOCUMENTO INDIVIDUAL
+ * =========================================
+ * Demonstra como buscar um documento específico pelo ID
+ * Usa findById() ou findOne() para retornar um único documento
+ * Ütl para exibir detalhes de um item
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

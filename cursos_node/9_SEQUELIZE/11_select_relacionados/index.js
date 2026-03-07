@@ -1,3 +1,9 @@
+// ========================================
+// SEQUELIZE - BUSCANDO DADOS RELACIONADOS
+// ========================================
+// Este arquivo demonstra como BUSCAR registros com seus dados relacionados.
+// Usando 'include', podemos trazer um usuário e TODOS os seus endereços juntos.
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -78,16 +84,20 @@ app.post('/users/delete/:id', function (req, res) {
     .catch((err) => console.log(err))
 })
 
+// Rota GET /users/edit/:id - busca usuário COM TODOS seus endereços
 app.get('/users/edit/:id', function (req, res) {
   const id = req.params.id
 
+  // User.findOne() com 'include': busca os dados do usuário E traz junto todos os Address dele
+  // include: Address significa: \"traga também os endereços relacionados a este usuário\"
   User.findOne({
-    include: Address,
+    include: Address, // CARREGA os endereços associados ao usuário
     where: {
       id: id,
     },
   })
     .then((user) => {
+      // .get({ plain: true }) converte o resultado em objeto simples (remover metadados Sequelize)
       res.render('useredit', { user: user.get({ plain: true }) })
     })
     .catch((err) => console.log(err))

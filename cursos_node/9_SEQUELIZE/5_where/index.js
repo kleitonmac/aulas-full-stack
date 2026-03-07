@@ -1,3 +1,9 @@
+// ========================================
+// SEQUELIZE - BUSCANDO COM FILTROS (WHERE)
+// ========================================
+// Este arquivo demonstra como buscar registros com condições específicas.
+// A cláusula WHERE permite filtrar dados por critérios.
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -20,6 +26,7 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
+// Rota GET / - lista todos os usuários
 app.get('/', function (req, res) {
   User.findAll({ raw: true })
     .then((users) => {
@@ -47,23 +54,26 @@ app.post('/users/create', function (req, res) {
   res.redirect('/')
 })
 
+// Rota GET /users/:id - busca um usuário específco por ID
 app.get('/users/:id', function (req, res) {
   const id = req.params.id
 
+  // User.findOne() - busca UM registro que atenda às condições
+  // where: { id: id } - ClÁUSULA WHERE: filtra por ID
   User.findOne({
     raw: true,
     where: {
-      id: id,
+      id: id, // Busca o usuário com este ID específfico
     },
   })
     .then((user) => {
       console.log(user)
-      res.render('userview', { user })
+      res.render('userview', { user }) // Exibe a página do usuário
     })
     .catch((err) => console.log(err))
 })
 
-// Criar tabelas e rodar o app
+// Sincroniza e inicia o servidor
 conn
   .sync()
   .then(() => {

@@ -1,3 +1,11 @@
+/**
+ * MONGOOSE - LENDO DOCUMENTOS
+ * ===========================
+ * Demonstra como buscar e ler documentos do MongoDB com Mongoose
+ * Usa métodos como .find(), .findById(), .findOne() para queries
+ * Exemplifica filtros e operações de busca
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

@@ -1,3 +1,9 @@
+// ========================================
+// ARQUITETURA MVC - ENVIANDO DADOS DE ATUALIZAÇÃO
+// ========================================
+// Este arquivo demonstra como ATUALIZAR dados no banco.
+// A operação UPDATE modifica registros existentes (task.update).
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -5,10 +11,8 @@ const app = express()
 
 const conn = require('./db/conn')
 
-// Models
 const Task = require('./models/Task')
 
-// routes
 const taskRoutes = require('./routes/tasksRoutes')
 
 app.engine('handlebars', exphbs())

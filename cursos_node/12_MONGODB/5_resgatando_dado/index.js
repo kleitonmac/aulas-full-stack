@@ -1,3 +1,10 @@
+/**
+ * MONGODB - BUSCANDO UM DOCUMENTO ESPECÍFICO
+ * ==========================================
+ * Demonstra como buscar um documento único no MongoDB
+ * Exemplifica busca por ID e filtros de busca
+ */
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()

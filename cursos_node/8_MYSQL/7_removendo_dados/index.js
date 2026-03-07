@@ -1,12 +1,18 @@
-const express = require('express')
-const exphbs = require('express-handlebars')
-const mysql = require('mysql')
+// ARQUIVO: Removendo (DELETE) Dados do MySQL
+// DESCRIÇÃO: Demonstra como deletar um registro do banco de dados
+// CONCEITOS: DELETE, WHERE, remoção de dados, confirmação de exclusão
 
-const app = express()
+const express = require('express') // Framework Express
+const exphbs = require('express-handlebars') // Template Handlebars
+const mysql = require('mysql') // Módulo MySQL
 
+const app = express() // Aplicação
+
+// CONFIGURAÇÃO DO TEMPLATE ENGINE
 app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
 
+// MIDDLEWARES
 app.use(
   express.urlencoded({
     extended: true,
@@ -17,10 +23,12 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
+// ROTA principal
 app.get('/', function (req, res) {
   res.render('home')
 })
 
+// ROTA POST: Insere novo livro
 app.post('/books/insertbook', function (req, res) {
   const title = req.body.title
   const pageqty = req.body.pageqty
@@ -36,6 +44,7 @@ app.post('/books/insertbook', function (req, res) {
   })
 })
 
+// ROTA GET: Lista todos os livros
 app.get('/books', function (req, res) {
   const query = `SELECT * FROM books`
 
@@ -52,6 +61,7 @@ app.get('/books', function (req, res) {
   })
 })
 
+// ROTA GET: Recupera um livro específico pelo ID
 app.get('/books/:id', function (req, res) {
   const id = req.params.id
 
@@ -70,6 +80,7 @@ app.get('/books/:id', function (req, res) {
   })
 })
 
+// ROTA GET: Exibe página de edição
 app.get('/books/edit/:id', function (req, res) {
   const id = req.params.id
 
@@ -88,6 +99,7 @@ app.get('/books/edit/:id', function (req, res) {
   })
 })
 
+// ROTA POST: Atualiza os dados do livro
 app.post('/books/updatebook', function (req, res) {
   const id = req.body.id
   const title = req.body.title
@@ -104,20 +116,26 @@ app.post('/books/updatebook', function (req, res) {
   })
 })
 
+// ROTA POST: Remove um livro do banco de dados
 app.post('/books/remove/:id', function (req, res) {
+  // Extrai o ID da URL
   const id = req.params.id
 
+  // Query DELETE para remover o registro onde ID corresponde
   const query = `DELETE FROM books WHERE id = ${id}`
 
+  // Executa a query de exclusão
   conn.query(query, function (err) {
     if (err) {
       console.log(err)
     }
 
+    // Após deletar, redireciona para a lista de livros
     res.redirect(`/books`)
   })
 })
 
+// CONFIGURAÇÃO DA CONEXÃO MySQL
 const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',

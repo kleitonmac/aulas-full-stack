@@ -1,15 +1,19 @@
-// --a=10 --b=20
+// Prática com argumentos e módulos
+// Exemplo de execução: node index.js --a=10 --b=20
 
-// externo
-const minimist = require("minimist");
+// Importar módulo externo (minimist) para processar argumentos
+const minimist = require('minimist')
 
-// interno
-const meuModulo = require("./meu_modulo");
-const soma = meuModulo.soma;
+// Importar módulo interno (meu_modulo) que contém a função soma
+const meuModulo = require('./meu_modulo')
+const soma = meuModulo.soma
 
-const args = minimist(process.argv.slice(2));
+// Processar os argumentos da linha de comando
+const args = minimist(process.argv.slice(2))
 
-const a = args["a"];
-const b = args["b"];
+// Extrair os valores de 'a' e 'b' dos argumentos
+const a = args['a']
+const b = args['b']
 
-soma(a, b);
+// Chamar a função soma com os argumentos recebidos
+soma(a, b)

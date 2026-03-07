@@ -1,3 +1,9 @@
+// ========================================
+// SEQUELIZE - DELETANDO DADOS RELACIONADOS
+// ========================================
+// Este arquivo demonstra como REMOVER endereços relacionados.
+// Um endereço sempre pertence a um usuário, então deletamos pelo ID do endereço.
+
 const express = require('express')
 const exphbs = require('express-handlebars')
 
@@ -78,11 +84,12 @@ app.post('/users/delete/:id', function (req, res) {
     .catch((err) => console.log(err))
 })
 
+// Rota GET /users/edit/:id - busca usuário COM TODOS seus endereços
 app.get('/users/edit/:id', function (req, res) {
   const id = req.params.id
 
   User.findOne({
-    include: Address,
+    include: Address, // Traz todos os endereços do usuário
     where: {
       id: id,
     },
@@ -144,15 +151,17 @@ app.post('/address/create', function (req, res) {
     .then(res.redirect(`/users/edit/${UserId}`))
     .catch((err) => console.log(err))
 })
-
+// Rota POST /address/delete - DELETA um endereço relacionado
 app.post('/address/delete/', function (req, res) {
   const id = req.body.id
 
+  // Address.destroy() - DELETA um endereço específico pelo ID
   Address.destroy({
     where: {
-      id: id,
+      id: id, // Deleta o endereço com este ID
     },
   })
+    .then(res.redirect('/')) // Redireciona para a página inicial
     .then(res.redirect('/'))
     .catch((err) => console.log(err))
 })

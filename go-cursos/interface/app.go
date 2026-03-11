@@ -31,11 +31,12 @@ type PessoaJuridica struct {
 
 // Função que recebe qualquer tipo que implemente Document
 func show(d Document) {
-	if pf, ok := d.(PessoaFisica); ok {
-		fmt.Println(pf.Sobrenome)
-	} else if pj, ok := d.(PessoaJuridica); ok {
-		fmt.Println(pj.RazaoSocial)
-	} else {
+	switch d.(type) {
+	case PessoaFisica:
+		fmt.Println("Meu Sobrenome %s", d.(PessoaFisica).Sobrenome)
+	case PessoaJuridica:
+		fmt.Println("Minha Razão Social %s", d.(PessoaJuridica).RazaoSocial)
+	default:
 		fmt.Println("Tipo desconhecido")
 	}
 	fmt.Println(d)
@@ -87,7 +88,7 @@ func main() {
 
 	pj := PessoaJuridica{
 		Pessoa{Nome: "Aprenda Golang", Idade: 1, Status: true},
-		"Razao Social LTDA",
+		"Kdev LTDA",
 		"123.456.789/0001-00",
 	}
 

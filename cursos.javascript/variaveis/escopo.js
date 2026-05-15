@@ -1,0 +1,79 @@
+/*
+       =========================================================
+       ESCOPO DE VARIÁVEIS EM JAVASCRIPT
+       =========================================================
+       Escopo define ONDE uma variável pode ser acessada
+       dentro do código.
+       */
+
+/*
+---------------------------------------------------------
+ESCOPO GLOBAL
+---------------------------------------------------------
+Variáveis declaradas fora de funções pertencem
+ao escopo global e podem ser acessadas em qualquer
+parte do código.
+*/
+
+var serie = "Friends"; // escopo global
+
+/*
+---------------------------------------------------------
+ESCOPO DE BLOCO (if)
+---------------------------------------------------------
+ATENÇÃO:
+Quando usamos "var", o JavaScript NÃO respeita
+escopo de bloco, apenas escopo global e de função.
+*/
+
+if (true) {
+    var serie2 = "Round 6"; // NÃO é escopo de bloco com var
+    document.write(serie); // acessa variável global
+}
+
+// A variável serie2 ainda está acessível aqui
+// porque "var" ignora o escopo de bloco
+document.write(serie2);
+document.write('<br />');
+
+/*
+---------------------------------------------------------
+ESCOPO DE FUNÇÃO
+---------------------------------------------------------
+Variáveis declaradas dentro de uma função
+pertencem APENAS àquela função.
+*/
+
+function x() {
+    var serie3 = "La Casa de Papel"; // escopo de função
+
+    // A função pode acessar:
+    // - variáveis globais
+    // - variáveis declaradas fora do bloco da função
+    document.write(serie);
+    document.write(serie2);
+}
+
+x();
+document.write('<br />');
+
+/*
+---------------------------------------------------------
+ERRO DE ESCOPO
+---------------------------------------------------------
+A variável serie3 NÃO pode ser acessada fora da função.
+Isso causará erro: "serie3 is not defined"
+*/
+
+// document.write(serie3); // ERRO
+
+/*
+=========================================================
+BOA PRÁTICA MODERNA
+=========================================================
+Prefira usar:
+- let → escopo de bloco
+- const → escopo de bloco e valor constante
+
+Evite "var" em código moderno.
+*/

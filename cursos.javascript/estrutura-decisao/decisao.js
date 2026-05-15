@@ -1,0 +1,47 @@
+/*
+    =========================================================
+    CONDICIONAL IF / ELSE EM JAVASCRIPT
+    =========================================================
+    O objetivo deste código é:
+    - Ler a nota de um aluno
+    - Comparar com a média mínima
+    - Informar se o aluno foi aprovado ou reprovado
+    */
+
+// prompt SEMPRE retorna um valor do tipo STRING
+var nota = prompt('Digite a nota do aluno');
+
+// Definição da média mínima para aprovação
+var media = 7;
+
+/*
+---------------------------------------------------------
+CONVERSÃO DE TIPO
+---------------------------------------------------------
+Para evitar comparações incorretas, é recomendável
+converter a nota para número.
+*/
+
+nota = parseFloat(nota);
+
+/*
+---------------------------------------------------------
+ESTRUTURA CONDICIONAL
+---------------------------------------------------------
+if (condição) → executa se a condição for verdadeira
+else → executa se a condição for falsa
+*/
+
+if (nota >= media) {
+    // Este bloco será executado se a condição for verdadeira
+    document.write('Aprovado');
+} else {
+    // Este bloco será executado se a condição for falsa
+    document.write('Reprovado');
+}
+
+/*
+Exemplo de comparação:
+nota = 8 → 8 >= 7 → true → Aprovado
+nota = 6 → 6 >= 7 → false → Reprovado
+*/

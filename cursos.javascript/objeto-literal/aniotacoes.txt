@@ -1,0 +1,37 @@
+Objeto literal é uma forma simples de criar um objeto diretamente no código, usando chaves {}. 
+Ele serve para guardar informações em pares de chave e valor, como nome, idade, função, etc. 
+É muito usado porque é prático, organizado e fácil de ler.
+
+Exemplo:
+
+js
+const usuario = {
+  nome: "Kleiton",
+  idade: 25,
+  profissao: "desenvolvedor"
+};
+Nesse caso, usuario é um objeto literal com três propriedades. Diferente de uma classe, ele já é criado pronto, sem precisar usar new.
+
+Use map quando você quer transformar um array e criar um novo array como resultado. Use forEach quando você só quer percorrer os itens e executar uma ação, sem precisar retornar um novo array.
+
+Resposta curta
+map: quando precisa gerar outro array.
+
+forEach: quando só precisa executar algo item por item.
+
+Exemplo prático
+js
+const numeros = [1, 2, 3];
+
+// map: cria um novo array
+const dobrados = numeros.map(n => n * 2);
+console.log(dobrados); // [2, 4, 6]
+
+// forEach: só percorre
+numeros.forEach(n => {
+  console.log(n * 2);
+});
+Regra fácil de lembrar
+Se você vai guardar o resultado, use map.
+Se você vai só fazer uma ação, use forEach.
+

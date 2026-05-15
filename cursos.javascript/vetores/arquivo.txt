@@ -1,0 +1,31 @@
+ => Vetores trabalham com indice
+
+ const numeros = [ 1 , 2 , 3 , 4 , 5 ]
+ //indice          0   1   2   3   4
+ //posições        1   2   3   4   5
+
+ => saber o tamanho do Vetores
+ prop length - Retorna o tamanho do vetor
+ 
+ Exemplo 
+ const numeros = [1 , 2 , 3 , 4 , 5 ]
+ numeros.length - Retorna 5
+
+ => Iteração - para percorrer o vetor
+ for (let i = 0 ; i < numeros.length ; i++) {
+    console.log(numeros[i])
+ }
+
+ => Adicionar e remover elementos
+ push - Adiciona elementos no final do vetor
+ pop - Remove elementos do final do vetor
+ shift - Remove elementos do início do vetor
+ unshift - Adiciona elementos no início do vetor
+
+ Exemplo 
+ const numeros = [1 , 2 , 3 , 4 , 5 ]
+ numeros.push(6) => [1 , 2 , 3 , 4 , 5 , 6]
+ numeros.pop() => [1 , 2 , 3 , 4 , 5]
+ numeros.shift() => [1 , 2 , 3 , 4 , 5]
+ numeros.unshift(0) => [0 , 1 , 2 , 3 , 4 , 5]
+

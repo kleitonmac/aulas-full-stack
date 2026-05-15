@@ -1,0 +1,65 @@
+/*
+   =========================================================
+   ESTRUTURA CONDICIONAL IF / ELSE
+   =========================================================
+   O if executa um bloco de código quando a condição
+   avaliada for VERDADEIRA (true).
+   O else executa um bloco quando a condição for FALSA (false).
+   */
+
+// Exemplo simples de comparação
+if (2 == 2) {
+    // Este bloco será executado porque a condição é verdadeira
+    document.write('Entrou dentro do bloco if (verdadeiro)');
+} else {
+    // Este bloco só executaria se a condição fosse falsa
+    document.write('Entrou dentro do bloco else (falso)');
+}
+
+/*
+=========================================================
+OPERADORES DE COMPARAÇÃO EM JAVASCRIPT
+=========================================================
+Esses operadores são usados para comparar valores
+e sempre retornam true ou false.
+*/
+
+// ==  (igual)
+// Compara apenas o VALOR, não o tipo
+// Exemplo: 2 == "2" → true
+
+// === (estritamente igual / idêntico)
+// Compara VALOR e TIPO
+// Exemplo: 2 === "2" → false
+
+// !=  (diferente)
+// Compara apenas o valor
+// Exemplo: 5 != "5" → false
+
+// !== (estritamente diferente / não idêntico)
+// Compara valor e tipo
+// Exemplo: 5 !== "5" → true
+
+// <  (menor que)
+// Verifica se o valor da esquerda é menor que o da direita
+// Exemplo: 3 < 5 → true
+
+// >  (maior que)
+// Verifica se o valor da esquerda é maior que o da direita
+// Exemplo: 10 > 7 → true
+
+// <= (menor ou igual)
+// Verifica se o valor da esquerda é menor ou igual ao da direita
+// Exemplo: 7 <= 7 → true
+
+// >= (maior ou igual)
+// Verifica se o valor da esquerda é maior ou igual ao da direita
+// Exemplo: 8 >= 7 → true
+
+/*
+=========================================================
+BOA PRÁTICA
+=========================================================
+Sempre prefira usar === e !==
+Isso evita erros causados por conversão automática de tipos.
+*/

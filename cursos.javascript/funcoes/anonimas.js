@@ -1,0 +1,53 @@
+/*
+       =========================================================
+       FUNÇÃO ANÔNIMA EM JAVASCRIPT
+       =========================================================
+       Uma função anônima é uma função que NÃO possui nome.
+       Ela normalmente é atribuída a uma variável.
+       */
+
+/*
+---------------------------------------------------------
+FUNÇÃO ANÔNIMA ATRIBUÍDA A UMA VARIÁVEL
+---------------------------------------------------------
+A variável passa a ser uma referência para a função.
+*/
+
+var exibirSaudacao = function (nome) {
+    // Corpo da função
+    // "nome" é um parâmetro recebido na chamada da função
+    document.write('Olá ' + nome + ', tudo bem?');
+};
+
+/*
+---------------------------------------------------------
+CHAMADA DA FUNÇÃO
+---------------------------------------------------------
+Ao chamar a variável como função, o código
+dentro da função anônima é executado.
+*/
+
+exibirSaudacao('Kleiton');
+
+/*
+=========================================================
+OBSERVAÇÕES IMPORTANTES
+=========================================================
+- Funções em JavaScript são valores
+- Podem ser armazenadas em variáveis
+- Podem ser passadas como parâmetros (callback)
+- Podem ser retornadas por outras funções
+*/
+
+/*
+=========================================================
+COMPARAÇÃO COM FUNÇÃO TRADICIONAL
+=========================================================
+
+function exibirSaudacao(nome) {
+    document.write('Olá ' + nome + ', tudo bem?');
+}
+
+Ambas funcionam, mas a forma anônima é muito usada
+em callbacks e programação funcional.
+*/
